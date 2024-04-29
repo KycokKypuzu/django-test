@@ -1,0 +1,14 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+    <h1><strong>Title:</strong> {{ feature.title }}</h1>
+        <p><strong>Description:</strong> {{ feature.description }}</p>
+        <p><strong>Status:</strong> {{ feature.status }}</p>
+        <p><strong>Priority:</strong> {{ feature.priority }}</p>
+        <p><strong>Находится в проекте:</strong> {{ feature.project }}</p>
+        <p><strong>Относится к задаче:</strong> {{ feature.task }}</p>
+
+    <p><a href="{% url 'quality_control:update_feature' feature.id %}">Изменить предложение об улучшении</a></p>
+
+    <p><a href="{% url 'quality_control:delete_feature' feature.id %}"onclick="return confirm('Вы уверены, что хотите удалить это предложение об улучшении?');">Удалить предложение об улучшении</a></p>
+{% endblock %}

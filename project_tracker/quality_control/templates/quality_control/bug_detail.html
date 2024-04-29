@@ -1,0 +1,14 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+    <h1><strong>Title:</strong> {{ bug.title }}</h1>
+        <p><strong>Description:</strong> {{ bug.description }}</p>
+        <p><strong>Status:</strong> {{ bug.status }}</p>
+        <p><strong>Priority:</strong> {{ bug.priority }}</p>
+        <p><strong>Находится в проекте:</strong> {{ bug.project }}</p>
+        <p><strong>Относится к задаче:</strong> {{ bug.task }}</p>
+
+    <p><a href="{% url 'quality_control:update_bug' bug.id %}">Изменить отчёт об ошибке</a></p>
+
+    <p><a href="{% url 'quality_control:delete_bug' bug.id %}"onclick="return confirm('Вы уверены, что хотите удалить эту ошибку?');">Удалить ошибку</a></p>
+{% endblock %}
